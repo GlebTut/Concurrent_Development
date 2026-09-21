@@ -20,17 +20,17 @@ import (
 //add init, acquire and release
 
 // Semaphore struct with a channel to manage concurrent access.
-type semaphore struct {
+type sem struct {
 	theCounter chan struct{}
 }
 
 // Acquire function to acquire a semaphore slot.
-func (s *semaphore) Acquire() {
+func (s *sem) Acquire() {
 	s.theCounter <- struct{}{}
 }
 
 // Release function to release a semaphore slot.
-func (s *semaphore) Release() {
+func (s *sem) Release() {
 	<-s.theCounter
 }
 

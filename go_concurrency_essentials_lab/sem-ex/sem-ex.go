@@ -1,3 +1,13 @@
+// Lab: Go Concurrency Essentials – Weighted Semaphore (golang.org/x/sync)
+// Author: Gleb Tutubalin C00290944
+// License: MIT; see the LICENSE file in the repository root.
+//
+// Collaboration: Maksym Redchenko C00302240, Matvii Prokopovych C00302259
+//
+// This program uses golang.org/x/sync/semaphore to limit the number of
+// concurrent workers (a worker-pool pattern). The semaphore controls how
+// many goroutines may compute Collatz steps in parallel.
+
 package main
 
 import (
@@ -14,8 +24,9 @@ import (
 //
 // This use of a semaphore mimics a typical “worker pool” pattern, but without
 // the need to explicitly shut down idle workers when the work is done.
+
 func main() {
-	ctx := context.TODO()
+	ctx := context.Background()
 
 	var (
 		maxWorkers = runtime.GOMAXPROCS(0)

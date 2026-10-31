@@ -1,6 +1,6 @@
 // Lab: Go Concurrency Essentials – Weighted Semaphore (golang.org/x/sync)
 // Author: Gleb Tutubalin C00290944
-// License: MIT; see the LICENSE file in the repository root.
+// License: GPL-3.0; see the LICENSE file in the repository root.
 //
 // Collaboration: Maksym Redchenko C00302240, Matvii Prokopovych C00302259
 //

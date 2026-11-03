@@ -43,9 +43,6 @@ go run ./go_concurrency_essentials_lab/sem-ex
 - `semaphore`: 20 "Running task" lines, printed five at a time; takes about 8 seconds
 - `sem-ex`: a list of 64 Collatz step counts
 
-Run any of them with `-race` (for example `go run -race ./go_concurrency_essentials_lab/mutex`)
-to check for data races.
-
 ## Licence
 
 This code is licensed under the GNU General Public License v3.0 (GPL-3.0).

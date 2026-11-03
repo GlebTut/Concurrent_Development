@@ -13,7 +13,7 @@ Based on the template by Dr. Joseph Kehoe (Joseph.Kehoe@setu.ie).
 
 ## Requirements
 
-- [Go](https://go.dev/dl/) (the version given in `go.mod` of the repository root)
+- [Go](https://go.dev/dl/) (the version given in `../../go.mod` of the repository root)
 - Internet access the first time, so Go can download `golang.org/x/sync`
 
 ## How to run
@@ -22,7 +22,7 @@ From the root of the repository:
 
 ```
 go mod tidy
-go run ./Barrier
+go run ./lab_three/Barrier
 ```
 
 Or from inside this folder:
@@ -37,14 +37,8 @@ After about one second, ten `Part A <n>` lines appear, followed by ten `Part B <
 The order of the numbers inside each group changes from run to run, but no `Part B` line
 ever appears before every `Part A` line has been printed.
 
-To check for data races, run with the race detector:
-
-```
-go run -race ./Barrier
-```
-
 ## Licence
 
 This code is licensed under the GNU General Public License v3.0 (GPL-3.0).
-See the [LICENSE](../LICENSE) file in the repository root.
+See the [LICENSE](../../LICENSE) file in the repository root.
 The original template is Copyright (C) 2024 Dr. Joseph Kehoe, released under the same licence.

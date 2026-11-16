@@ -5,11 +5,35 @@ A reusable N-goroutine barrier in Go, built from a mutex and two weighted semaph
 Ten goroutines each do "Part A" (after a one second sleep), then wait at the barrier.
 Only when all ten have finished Part A does any of them start "Part B".
 
+## GitHub
+
+All the labs are in this repository: https://github.com/GlebTut/Concurrent_Development
+
+This lab: https://github.com/GlebTut/Concurrent_Development/tree/main/lab_three/Barrier
+
 ## Author
 
 Gleb Tutubalin C00290944
 
 Based on the template by Dr. Joseph Kehoe (Joseph.Kehoe@setu.ie).
+
+## How it works
+
+A barrier makes a group of goroutines wait for each other: nobody continues until all of them have
+arrived. This barrier can be used again and again (in a loop), because it has **two turnstiles**.
+A turnstile is a semaphore: a goroutine does `Acquire` and then immediately `Release`, which lets
+it through and passes the token on to the next waiting goroutine.
+
+- `counter` counts the goroutines inside the barrier. A mutex protects it.
+- `turnstile1` starts **closed**, `turnstile2` starts **open**.
+- **Phase 1.** Each goroutine adds 1 to `counter`. The last one to arrive closes `turnstile2` and
+  opens `turnstile1`. Everybody waits at `turnstile1`, so all of them pass together.
+- **Phase 2.** Each goroutine subtracts 1 from `counter`. The last one to leave closes `turnstile1`
+  and opens `turnstile2`. Everybody waits at `turnstile2`.
+
+Why two turnstiles? With only one, a fast goroutine could go round the loop and enter the barrier
+again while a slow goroutine is still leaving it, and the counter would be wrong. The second
+turnstile makes sure everybody has left the barrier before anyone can enter it again.
 
 ## Requirements
 

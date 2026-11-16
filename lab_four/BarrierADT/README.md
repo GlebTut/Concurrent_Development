@@ -2,11 +2,35 @@
 
 A reusable barrier as an abstract data type: a `barrier` struct created with `createBarrier(N)` and used through its `wait()` method. It uses an atomic counter and two unbuffered channels (two turnstiles), the same design as SimpleBarrier. Five goroutines use it for 3 rounds.
 
+## GitHub
+
+All the labs are in this repository: https://github.com/GlebTut/Concurrent_Development
+
+This lab: https://github.com/GlebTut/Concurrent_Development/tree/main/lab_four/BarrierADT
+
 ## Author
 
 Gleb Tutubalin C00290944
 
 Based on the template by Dr. Joseph Kehoe (Joseph.Kehoe@setu.ie).
+
+## How it works
+
+This is the same two-phase barrier as in `SimpleBarrier`, but packaged as an abstract data type: the
+`barrier` struct holds everything the barrier needs, and the goroutines only call `wait()`.
+
+- `createBarrier(N)` returns a pointer to a new barrier for `N` goroutines. It returns a pointer so
+  the barrier (which contains an atomic counter) is never copied.
+- `count` is an atomic counter of the goroutines inside the barrier. `turnstile1` and `turnstile2`
+  are unbuffered channels used as signals.
+- `wait()` **phase 1:** add 1 to `count`. The last goroutine to arrive sends `total-1` signals on
+  `turnstile1`; the others receive one and continue.
+- `wait()` **phase 2:** subtract 1 from `count`. The last goroutine to leave sends `total-1` signals
+  on `turnstile2`. Nobody can enter the barrier again until everybody has left it, so `wait()` can
+  be called in every round.
+
+The template used one channel and a mutex, and it could only be used once. Here the mutex was
+replaced by the atomic counter and the second turnstile was added to make it reusable.
 
 ## Requirements
 

@@ -36,6 +36,12 @@ In a quick test on a 2-core computer, thresholds from 25 to 35 all ran about twi
 sequential `fib`, and a threshold of 15 was slower than it. The best value depends on the number of
 cores, so it is not fixed in this lab: `threshold` is a parameter of `parFib`.
 
+## GitHub
+
+All the labs are in this repository: https://github.com/GlebTut/Concurrent_Development
+
+This lab: https://github.com/GlebTut/Concurrent_Development/tree/main/lab_three/Fibonacci
+
 ## Author
 
 Gleb Tutubalin C00290944

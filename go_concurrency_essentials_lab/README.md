@@ -3,6 +3,12 @@
 Five small Go programs showing the basic synchronisation tools used in the module.
 Each program lives in its own folder and has its own `main` function.
 
+## GitHub
+
+All the labs are in this repository: https://github.com/GlebTut/Concurrent_Development
+
+This lab: https://github.com/GlebTut/Concurrent_Development/tree/main/go_concurrency_essentials_lab
+
 ## Author
 
 Gleb Tutubalin C00290944

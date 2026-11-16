@@ -3,6 +3,10 @@
 Labs for the Go Concurrent Development module (SETU Carlow). Each lab is in its own folder
 with its own README that explains how to run it.
 
+## GitHub
+
+Repository with all the labs: https://github.com/GlebTut/Concurrent_Development
+
 ## Author
 
 Gleb Tutubalin

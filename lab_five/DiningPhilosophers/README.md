@@ -15,6 +15,12 @@ back. At most four philosophers can try for forks at once, so with five forks at
 them can always get both. The philosophers can never all be stuck holding one fork each, so the
 deadlock cannot happen.
 
+## GitHub
+
+All the labs are in this repository: https://github.com/GlebTut/Concurrent_Development
+
+This lab: https://github.com/GlebTut/Concurrent_Development/tree/main/lab_five/DiningPhilosophers
+
 ## Author
 
 Gleb Tutubalin C00290944

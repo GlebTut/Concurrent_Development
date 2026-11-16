@@ -7,6 +7,12 @@ is full, and a consumer has to wait when it is empty.
 This is a Go port of the C++ template by Dr. Joseph Kehoe (the `Semaphore`, `Event`, `SafeBuffer`
 and `main.cpp` files). The Go version uses 3 producers and 3 consumers, 10 events per producer.
 
+## GitHub
+
+All the labs are in this repository: https://github.com/GlebTut/Concurrent_Development
+
+This lab: https://github.com/GlebTut/Concurrent_Development/tree/main/lab_six/ProducerConsumer
+
 ## 1. Licence
 
 GNU General Public License v3.0 (GPL-3.0). See the [LICENSE](../../LICENSE) file in the

@@ -8,6 +8,12 @@ rendezvous point. Only when all five have finished Part A does any of them start
 The rendezvous is single use: every goroutine calls `Wait()` exactly once.
 (For a reusable version, see the two-turnstile barrier in `../Barrier`.)
 
+## GitHub
+
+All the labs are in this repository: https://github.com/GlebTut/Concurrent_Development
+
+This lab: https://github.com/GlebTut/Concurrent_Development/tree/main/lab_three/Rendezvous
+
 ## Author
 
 Gleb Tutubalin C00290944

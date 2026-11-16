@@ -37,6 +37,18 @@ After about one second, ten `Part A <n>` lines appear, followed by ten `Part B <
 The order of the numbers inside each group changes from run to run, but no `Part B` line
 ever appears before every `Part A` line has been printed.
 
+## Tests
+
+The tests check that no goroutine passes the barrier before all of them have arrived, and that the same barrier can be used for 100 rounds in a row without a deadlock or a goroutine running ahead.
+
+From the root of the repository:
+
+```
+go test ./lab_three/Barrier
+```
+
+Add `-race` (needs cgo and gcc) to also look for data races.
+
 ## Licence
 
 This code is licensed under the GNU General Public License v3.0 (GPL-3.0).

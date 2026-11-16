@@ -48,6 +48,9 @@ import (
 	"golang.org/x/sync/semaphore"
 )
 
+// Barrier is a reusable barrier for a fixed number of goroutines. It has two
+// turnstiles (semaphores): the first stays closed until everyone has arrived,
+// the second stays closed until everyone has left the first one.
 type Barrier struct {
 	mutex      sync.Mutex
 	counter    int
@@ -56,6 +59,7 @@ type Barrier struct {
 	turnstile2 *semaphore.Weighted
 }
 
+// NewBarrier creates a barrier for total goroutines.
 func NewBarrier(total int) *Barrier {
 	ctx := context.Background()
 	turnstile1 := semaphore.NewWeighted(1)
@@ -71,6 +75,8 @@ func NewBarrier(total int) *Barrier {
 	}
 }
 
+// Wait blocks until all goroutines have called it, then lets them all go.
+// The barrier can be used again for the next round.
 func (b *Barrier) Wait() {
 	ctx := context.Background()
 

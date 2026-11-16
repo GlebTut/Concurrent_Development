@@ -82,6 +82,7 @@ func (b *barrier) wait() {
 	}
 } //wait
 
+// WorkWithRendezvous does Part A, waits at the barrier and does Part B, for every round.
 func WorkWithRendezvous(wg *sync.WaitGroup, Num int, theBarrier *barrier) bool {
 	for round := 1; round <= rounds; round++ {
 		time.Sleep(time.Duration(rand.IntN(300)) * time.Millisecond) //wait random time amount

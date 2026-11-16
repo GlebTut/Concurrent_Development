@@ -40,6 +40,18 @@ because of the random waits. Each philosopher (0 to 4) prints 3 thinking and 3 e
 The program takes roughly 20 seconds, because the waits are up to 4 seconds each, and then exits
 by itself.
 
+## Tests
+
+The test runs the five philosophers and checks that the program does not deadlock and that every philosopher eats exactly 3 times. It uses the real waits of the program, so it takes 20 to 30 seconds. `go test -short ./lab_five/DiningPhilosophers` skips it.
+
+From the root of the repository:
+
+```
+go test ./lab_five/DiningPhilosophers
+```
+
+Add `-race` (needs cgo and gcc) to also look for data races.
+
 ## Licence
 
 This code is licensed under the GNU General Public License v3.0 (GPL-3.0).

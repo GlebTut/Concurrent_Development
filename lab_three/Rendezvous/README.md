@@ -47,6 +47,18 @@ After up to 4 seconds, five `Part A <n>` lines appear in random order, interleav
 followed by five `PartB <n>` lines. No `PartB` line ever appears before all five `Part A` lines
 have been printed.
 
+## Tests
+
+The tests check that no goroutine passes the rendezvous before all of them have arrived, and that all of them pass once the last one arrives.
+
+From the root of the repository:
+
+```
+go test ./lab_three/Rendezvous
+```
+
+Add `-race` (needs cgo and gcc) to also look for data races.
+
 ## Licence
 
 This code is licensed under the GNU General Public License v3.0 (GPL-3.0).

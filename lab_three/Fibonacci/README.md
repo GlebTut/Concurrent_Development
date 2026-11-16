@@ -77,6 +77,18 @@ Ten lines, each with the same number on both sides:
 1836311903 --- 1836311903
 ```
 
+## Tests
+
+The tests check `fib` against known values, and check that `parFib` gives the same answer as `fib` for every N from 0 to 20 and for several thresholds. The threshold must be at least 1: with 0, `parFib(1, 0)` would split into `parFib(0)` and `parFib(-1)` and return 2 instead of 1.
+
+From the root of the repository:
+
+```
+go test ./lab_three/Fibonacci
+```
+
+Add `-race` (needs cgo and gcc) to also look for data races.
+
 ## Licence
 
 This code is licensed under the GNU General Public License v3.0 (GPL-3.0).

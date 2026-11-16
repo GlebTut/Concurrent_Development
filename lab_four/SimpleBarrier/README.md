@@ -24,6 +24,18 @@ go run ./lab_four/SimpleBarrier
 
 For each round, ten `Part A round <r> goroutine <n>` lines appear, then ten `PartB round <r> goroutine <n>` lines. The order of the goroutine numbers changes from run to run, but no `PartB` line of a round appears before all ten `Part A` lines of that round.
 
+## Tests
+
+The test runs 10 goroutines for 3 rounds and checks that there is no deadlock, that in every round all `Part A` lines are printed before the first `PartB` line, and that the counter is back to 0 at the end.
+
+From the root of the repository:
+
+```
+go test ./lab_four/SimpleBarrier
+```
+
+Add `-race` (needs cgo and gcc) to also look for data races.
+
 ## Licence
 
 This code is licensed under the GNU General Public License v3.0 (GPL-3.0).

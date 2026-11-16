@@ -24,6 +24,18 @@ go run ./lab_four/BarrierADT
 
 For each round, five `Part A round <r> goroutine <n>` lines appear, then five `PartB round <r> goroutine <n>` lines. The order of the goroutine numbers changes from run to run, but no `PartB` line of a round appears before all five `Part A` lines of that round.
 
+## Tests
+
+The tests check that no goroutine passes the barrier before all of them have arrived, and that the same barrier can be used for 100 rounds in a row without a deadlock or a goroutine running ahead.
+
+From the root of the repository:
+
+```
+go test ./lab_four/BarrierADT
+```
+
+Add `-race` (needs cgo and gcc) to also look for data races.
+
 ## Licence
 
 This code is licensed under the GNU General Public License v3.0 (GPL-3.0).
